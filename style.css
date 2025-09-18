@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("./assets/bg-mobile.png"); /* troquei .jpg -> .png */
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+}
+
+#container {
+  width: 360px;
+  margin: 56px auto 0;
+}
+
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+  border-radius: 50%;
+}
+
+#profile p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 24px 24px;
+}
+
+ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px;
+
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  backdrop-filter: blur(4px);
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+ul li a:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid #ffffff; /* sem espaço! */
+}
+
+/* opcional: usar o fundo desktop quando a tela for maior */
+@media (min-width: 700px) {
+  body {
+    background-image: url("./assets/bg-desktop.png");
+  }
+}
+
+/* opcional: se quiser versão light automática pelo sistema */
+@media (prefers-color-scheme: light) {
+  body {
+    background-image: url("./assets/bg-mobile-light.png");
+  }
+  @media (min-width: 700px) {
+    body {
+      background-image: url("./assets/bg-desktop-light.png");
+    }
+  }
+}
