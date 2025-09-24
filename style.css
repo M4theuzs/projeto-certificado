@@ -1,26 +1,54 @@
+/* reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* tema escuro */
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.png);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(255, 255, 255, 0.05);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+/* tema claro */
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.png);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(255, 255, 255, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+/* fundo */
 body {
-  background-image: url("./assets/bg-mobile.png"); /* troquei .jpg -> .png */
+  background-image: var(--bg-url);
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
 }
 
+/* texto */
 body * {
   font-family: "Inter", sans-serif;
-  color: #ffffff;
+  color: var(--text-color);
 }
 
+/* container central */
 #container {
   width: 360px;
   margin: 56px auto 0;
+  padding: 0 24px;
 }
 
+/* perfil */
 #profile {
   text-align: center;
   padding: 24px;
@@ -34,16 +62,51 @@ body * {
 #profile p {
   font-weight: 500;
   font-size: 16px;
-  line-height: 24px;
   margin-top: 8px;
 }
 
+/* switch (botão do tema) */
+#switch {
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+  cursor: pointer;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  transition: transform 0.3s;
+}
+
+.light #switch button {
+  transform: translate(32px, -50%);
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 9999px;
+  backdrop-filter: blur(4px);
+}
+
+/* links */
 ul {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 0 24px 24px;
+  padding: 24px 0;
 }
 
 ul li a {
@@ -51,35 +114,44 @@ ul li a {
   justify-content: center;
   align-items: center;
   padding: 16px 24px;
-
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: var(--surface-color);
+  border: 1px solid var(--stroke-color);
   border-radius: 10px;
   backdrop-filter: blur(4px);
   text-decoration: none;
+  font-weight: 500;
   transition: background 0.2s, border-color 0.2s;
 }
 
 ul li a:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1.5px solid #ffffff; /* sem espaço! */
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
 }
 
-/* opcional: usar o fundo desktop quando a tela for maior */
-@media (min-width: 700px) {
-  body {
-    background-image: url("./assets/bg-desktop.png");
-  }
+/* redes sociais */
+#social-links {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+  font-size: 24px;
 }
 
-/* opcional: se quiser versão light automática pelo sistema */
-@media (prefers-color-scheme: light) {
-  body {
-    background-image: url("./assets/bg-mobile-light.png");
-  }
-  @media (min-width: 700px) {
-    body {
-      background-image: url("./assets/bg-desktop-light.png");
-    }
-  }
+#social-links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+
+/* rodapé */
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
 }
