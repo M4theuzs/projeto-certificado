@@ -47,4 +47,4 @@ Esse projeto está sob a licença MIT.
 
 ---
 
-Feito com ♥ por **Matheus Henrique Albert** 👨‍💻 [Meu GitHub](https://github.com/M4theuzs)
+Feito com  por **Matheus Henrique Albert** 👨‍💻 [Meu GitHub](https://github.com/M4theuzs)
