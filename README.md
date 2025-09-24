@@ -1,4 +1,4 @@
-<h1 align="center"> 🌟 DevLinks - Meu Cartão Digital </h1>
+<h1 align="center"> </h1>
 
 <p align="center">
 Projeto desenvolvido durante o programa <strong>Rocketseat Explorer</strong>, 
